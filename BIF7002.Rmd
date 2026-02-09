@@ -1,0 +1,76 @@
+---
+title: "Motifs complexes d'ARN"
+subtitle: "BIO7002 - Hiver 2026"
+author: "Orateur : Vladimir Reinharz <br> Écrit par : "
+date: "2026-02-17"
+output: 
+    html_document:
+      toc: true
+      toc-title: "Table des matières"
+      toc_float:
+        collapsed: false
+      toc_depth: 2
+bibliography: references.bib 
+---
+
+<style type="text/css">
+
+.tocify-header {
+  text-indent: initial;
+}
+
+.tocify-subheader > .tocify-item {
+  text-indent: initial;
+  padding-left: 2em;
+}
+
+body{ /* Normal  */
+    font-size: 14px;
+}
+  
+h1 { /* Header 1 */
+  font-size: 25px;
+}
+
+h2 { /* Header 2 */
+    font-size: 20px;
+}
+
+h3 { /* Header 3 */
+  font-size: 18px;
+}
+</style>
+
+# Introduction
+
+# ADN, ARN et protéines
+- differences in geometry and structure 
+- why DNA and protein structure is easier to predict than RNA
+
+# Structure d'ARN
+## Structures de l'ARN : primaire, secondaire et tertiaire
+## Structure secondaire de l'ARN
+- Loops, folding, motifs (eg. A-Minor)
+
+## Paires de bases canoniques vs non-canoniques
+
+# Représentations structures d'ARN
+## Dot-bracket notation
+## Programmation dynamique
+## L'ARN représenté sous forme de grpahes
+
+# Approches informatiques de la représentation d'ARN
+## Pasigraph
+## FR3D-python
+## CaRNAval
+## FuzzTree
+## BayesPairing2
+## Cantaloops
+
+# Conclusion et perspectives
+
+# Références
+
+---
+nocite: '@*'
+...
