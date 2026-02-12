@@ -11,6 +11,8 @@ output:
         collapsed: false
       toc_depth: 2
 bibliography: references.bib 
+csl: vancouver.csl
+link-citations: true
 ---
 
 <style type="text/css">
@@ -29,11 +31,11 @@ body{ /* Normal  */
 }
   
 h1 { /* Header 1 */
-  font-size: 25px;
+  font-size: 22px;
 }
 
 h2 { /* Header 2 */
-    font-size: 20px;
+    font-size: 18px;
 }
 
 h3 { /* Header 3 */
@@ -42,6 +44,13 @@ h3 { /* Header 3 */
 </style>
 
 # Introduction
+Chacun des molécules biologiques ADN, ARN et protéines interviennent dans la transmission de l'information génétique et sont indispensable à tout être vivant. La modélisation structurelle de l'ADN, de l'ARN et des protéines nous permet de comprendre leur fonction, ce qui a des implications dans de nombreux domaines, tels que l'agriculture et la médecine. [@molecularBiology]
+
+La réussite de la modélisation structurelle informatique dépend sur des données nombreuses et équilibrées, ainsi que sur des annotations de qualité. Bien que des progrès significatifs aient été réalisés dans la prédiction de la structure de l'ADN et des protéines, la modélisation de l'ARN demeure plus compliquée en raison du nombre limité de données disponibles et de ses propriétés structurelles, telles que ses motifs. [@RNAFunctionFollowsForm] 
+
+Nous présenterons les raisons pour lesquelles la complexité de la structure de l'ARN rend sa prédiction difficile, ainsi que les différents outils existants pour l'identifier et la prédire.
+
+
 
 # ADN, ARN et protéines
 - differences in geometry and structure 
@@ -54,7 +63,7 @@ h3 { /* Header 3 */
 
 ## Paires de bases canoniques vs non-canoniques
 
-# Représentations structures d'ARN
+# Représentations des structures secondaires de l'ARN
 ## Dot-bracket notation
 ## Programmation dynamique
 ## L'ARN représenté sous forme de grpahes

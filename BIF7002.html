@@ -1326,7 +1326,6 @@ if (window.hljs) {
 div.csl-bib-body { }
 div.csl-entry {
 clear: both;
-margin-bottom: 0em;
 }
 .hanging div.csl-entry {
 margin-left:2em;
@@ -1528,10 +1527,10 @@ body{
 font-size: 14px;
 }
 h1 { 
-font-size: 25px;
+font-size: 22px;
 }
 h2 { 
-font-size: 20px;
+font-size: 18px;
 }
 h3 { 
 font-size: 18px;
@@ -1539,6 +1538,22 @@ font-size: 18px;
 </style>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
+<p>Chacun des molécules biologiques ADN, ARN et protéines interviennent
+dans la transmission de l’information génétique et sont indispensable à
+tout être vivant. La modélisation structurelle de l’ADN, de l’ARN et des
+protéines nous permet de comprendre leur fonction, ce qui a des
+implications dans de nombreux domaines, tels que l’agriculture et la
+médecine. <span class="citation">(<a href="#ref-molecularBiology">1</a>)</span></p>
+<p>La réussite de la modélisation structurelle informatique dépend sur
+des données nombreuses et équilibrées, ainsi que sur des annotations de
+qualité. Bien que des progrès significatifs aient été réalisés dans la
+prédiction de la structure de l’ADN et des protéines, la modélisation de
+l’ARN demeure plus compliquée en raison du nombre limité de données
+disponibles et de ses propriétés structurelles, telles que ses motifs.
+<span class="citation">(<a href="#ref-RNAFunctionFollowsForm">2</a>)</span></p>
+<p>Nous présenterons les raisons pour lesquelles la complexité de la
+structure de l’ARN rend sa prédiction difficile, ainsi que les
+différents outils existants pour l’identifier et la prédire.</p>
 </div>
 <div id="adn-arn-et-protéines" class="section level1">
 <h1>ADN, ARN et protéines</h1>
@@ -1562,8 +1577,8 @@ font-size: 18px;
 <h2>Paires de bases canoniques vs non-canoniques</h2>
 </div>
 </div>
-<div id="représentations-structures-darn" class="section level1">
-<h1>Représentations structures d’ARN</h1>
+<div id="représentations-des-structures-secondaires-de-larn" class="section level1">
+<h1>Représentations des structures secondaires de l’ARN</h1>
 <div id="dot-bracket-notation" class="section level2">
 <h2>Dot-bracket notation</h2>
 </div>
@@ -1600,11 +1615,46 @@ font-size: 18px;
 </div>
 <div id="références" class="section level1 unnumbered">
 <h1 class="unnumbered">Références</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-R-base" class="csl-entry">
-R Core Team. 2019. <em>R: A Language and Environment for Statistical
-Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
-<a href="https://www.R-project.org">https://www.R-project.org</a>.
+<div id="refs" class="references csl-bib-body">
+<div id="ref-molecularBiology" class="csl-entry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Committee on Research Opportunities in Biology.
+NRC (US). Molecular structure and function. National Academies Press
+(US) [Internet]. 1989; Available from: <a href="https://www.ncbi.nlm.nih.gov/books/NBK217812/">https://www.ncbi.nlm.nih.gov/books/NBK217812/</a></div>
+</div>
+<div id="ref-RNAFunctionFollowsForm" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Kwon
+D. RNA function follows form – why is it so hard to predict? Nature
+[Internet]. 2025; Available from: <a href="doi:%20https://doi.org/10.1038/d41586-025-00920-8">doi:
+https://doi.org/10.1038/d41586-025-00920-8</a></div>
+</div>
+<div id="ref-stochastic" class="csl-entry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Roman Sarrazin-Gendron VR Hua-Ting Yao.
+Stochastic sampling of structural contexts improves the scalability and
+accuracy of RNA 3D module identification. bioRxiv 834762 [Internet].
+2020; Available from: <a href="https://doi.org/10.1101/834762">https://doi.org/10.1101/834762</a></div>
+</div>
+<div id="ref-RNAloops" class="csl-entry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Jakub Wiedemann MM Jacek Kaczor. RNAloops: A
+database of RNA multiloops. Bioinformatics (Oxford, England), 38(17),
+4200–4205 [Internet]. 2022; Available from: <a href="https://doi.org/10.1093/bioinformatics/btac484">https://doi.org/10.1093/bioinformatics/btac484</a></div>
+</div>
+<div id="ref-RNAMotifProfile" class="csl-entry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Md
+Mahfuzur Rahaman SZ. RNAMotifProfile: A graph-based approach to build
+RNA structural motif profiles. NAR Genomics and Bioinformatics, Volume
+6, Issue 3 [Internet]. 2024; Available from: <a href="https://doi.org/10.1093/nargab/lqae128">https://doi.org/10.1093/nargab/lqae128</a></div>
+</div>
+<div id="ref-pseudoknots" class="csl-entry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Gabriel Loyer VR. Concurrent prediction of RNA
+secondary structures with pseudoknots and local 3D motifs in an integer
+programming framework. Bioinformatics (Oxford, England), 40(2), btae022
+[Internet]. 2024; Available from: <a href="https://doi.org/10.1093/bioinformatics/btae022">https://doi.org/10.1093/bioinformatics/btae022</a></div>
+</div>
+<div id="ref-edge" class="csl-entry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Antoine Soulé RSG Vladimir Reinharz. Finding
+recurrent RNA structural networks with fast maximal common subgraphs of
+edge-colored graphs. PLoS Comput Biol 17(5): e1008990 [Internet]. 2021;
+Available from: <a href="https://doi.org/10.1371/journal.pcbi.1008990">https://doi.org/10.1371/journal.pcbi.1008990</a></div>
 </div>
 </div>
 </div>
