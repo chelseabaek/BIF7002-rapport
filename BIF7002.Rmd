@@ -159,6 +159,43 @@ knitr::include_graphics("rin-17.png")
 ## BayesPairing2
 [BayesPairing2](https://jwgitlab.cs.mcgill.ca/sarrazin/rnabayespairing2)
 
+# Utilisation de BayesPairing2
+
+Pour tester les outils et comprendre leurs différences, nous avons décidé de comparer les différentes bases de données comprises dans Bayespairing2. Nous avons essayé d'utiliser celle de cantaloops_carnaval_v5, mais elle nous donnait à chaque reprise l'erreur IndexOutOfBounds.
+
+## Jeux de données
+SECIS Element (1WSU)
+GCUUGUACUGCUGAAGUGCUGUACAGU
+
+```{r SECIS, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='33%', fig.show='hold', fig.align='center', out.height=300}
+knitr::include_graphics("SECIS_RELIABLE.svg")
+knitr::include_graphics("SECIS_ATLAS.svg")
+knitr::include_graphics("SECIS_KT.svg")
+
+```
+
+RNase P Junction (3P22)
+GGCAGUGCUCAGUAACAGUGCC
+
+```{r RNaseP, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
+knitr::include_graphics("RNAP_RELIABLE.svg")
+knitr::include_graphics("RNAP_ATLAS.svg")
+
+```
+
+Sarcin-Ricin Loop (3S8U)
+UCCGGUUCCAGCCUCCUCAGAAACCGGAG
+
+```{r SRL, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
+knitr::include_graphics("SRL_RELIABLE.svg")
+knitr::include_graphics("SRL_ATLAS.svg")
+
+```
+
+## Méthodologie
+
+## Résultats
+
 
 # Conclusion et perspectives
 
