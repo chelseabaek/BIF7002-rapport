@@ -95,7 +95,7 @@ Les structures de protéines, quant à eux, bénéficient d'un large éventail d
 # Structure d'ARN
 La modélisation de l’ARN est difficile, notamment à cause de sa structure. Elle présente une seule chaîne de nucléotides, donc nous perdons les propriétés de superposition (Figure \@ref(fig:geometryOfDNAAndRNA) (droite)) offertes par l’ADN (plus possible d’avoir une structure constante de double hélice parfaite). Cette chaîne de nucléotides permet aux interactions d'appariement de bases de se produire entre les nucléotides d'un même brin. Les motifs structurels, comme les hélices et les boucles, sont des éléments de structure secondaire assemblés à partir de paires de bases Watson-Crick (A-U et C-G) (Figure \@ref(fig:basePairs) (gauche)) et de paires de bases wobble (G-U). [@RNAStructures2] 
 
-```{r basePairs, fig.align="center", fig.show="hold", fig.cap="(gauche) Paires de bases Watson-Crick d'ARN [@RNACanonical]; (droit) Example d'une paire de base non-Watson-Crick, W-C/Hoogsteen  [@RNANonCanonical]", echo=FALSE, out.width='50%'}
+```{r basePairs, fig.align="center", fig.show="hold", fig.cap="(gauche) Paires de bases Watson-Crick d'ARN [@RNACanonical]; (droite) Example d'une paire de base non-Watson-Crick, W-C/Hoogsteen  [@RNANonCanonical]", echo=FALSE, out.width='40%'}
 knitr::include_graphics("RNA_canonical.png")
 knitr::include_graphics("RNA_non_canonical.png")
 ```
@@ -107,12 +107,12 @@ Ces structures, appelées modules d’ARN, sont caractérisées par des ensemble
 Les modules apparaissent de façon récurrente dans différents ARN. On suppose que le même module présent dans différentes structures d'ARN a une importance fonctionnelle. [@MotifSignificance] Par example, Il y a 83 957 (trouvé sur CaRNAval (Figure \@ref(fig:module-example2))) occurrences du module représenté dans la Figure \@ref(fig:module-example) (gauche), comme par exemple dans le ribosome 1VQM (Figure \@ref(fig:module-example) (droite)).  
 
 
-```{r module-example, fig.align="center", fig.show="hold", fig.cap="(gauche) Le module d'ARN, RIN-2 [@RIN-17]; (droite) Le ribosome 1VQM tirée du PDB [@1VQM]", echo=FALSE, out.width='35%'}
+```{r module-example, fig.align="center", fig.show="hold", fig.cap="(gauche) Le module d'ARN, RIN-2 [@RIN-17]; (droite) Le ribosome 1VQM tirée du PDB [@1VQM]", echo=FALSE, out.width='30%'}
 knitr::include_graphics("RIN-2.png")
 knitr::include_graphics("1VQM.png")
 ```
 
-```{r module-example2, fig.align="center", fig.cap="Les occurrences du RIN-2 (A-Minor Type I) [@RIN-17]", echo=FALSE, out.width='75%'}
+```{r module-example2, fig.align="center", fig.cap="Les occurrences du RIN-2 (A-Minor Type I) [@RIN-17]", echo=FALSE, out.width='70%'}
 knitr::include_graphics("instances.png")
 ```
 L'ARN peut également interagir entre lui (ARN-ARN) ou avec d'autres molécules (ARN-ADN, ARN-protéines), formant des structures quaternaires, comme les ribosomes ou les spliceosomes. [@RNAStructures2]
@@ -127,7 +127,7 @@ GUUCCCGAAAGGAUGGCGGAAACGCCAGAUGCCUUGUAACCGAAAGGGGGAAU
 ((((((..((((.(((((....)))))....))))....((....))))))))
 ```
 
-The image on the right of Figure \@ref(fig:rna-3E5C) represents the drawn secondary structure. We used ViennaRNA Web Services to visualize the structure. The parentheses represent paired bases (green) and the dots represent unpaired regions such as multiloops (red), interior Loops (yellow) and hairpin loops (blue.)
+La Figure \@ref(fig:rna-3E5C) (gauche) représente une visualisation de la structure secondaire. Les parenthèses correspondent aux bases appariées (vert) et les points correspondent aux régions non appariées telles que les *multiloops* (rouge), les boucles internes (jaune) et les *hairpin loops* (bleu).
 
 
 ```{r rna-3E5C, fig.align="center", fig.show="hold", fig.cap="(gauche) La structure secondarie de l'ARN 3E5C dessinée en utilisant [ViennaRNA Web Services](http://rna.tbi.univie.ac.at/forna/); (droit) La structure tertiare de l'ARN 3E5C tirée du PDB [@3E5C]", echo=FALSE, out.width='50%'}
@@ -136,11 +136,17 @@ knitr::include_graphics("rna_3E5C_3D.jpeg")
 ```
 
 
-Cependant, l'ARN ?goes beyond? sa structure secondaire. L'ARN est capable de former des structures tertiaires impliquant des paires de bases non-Watson-Crick, as shown by the green dots in Figure \@ref(fig:rna-3E5C) (droit). Ces structures tertiaires peuvent être représentées sous forme de graphes. 
+Cependant, l'ARN va au-delà sa structure secondaire. L'ARN est capable de former des structures tertiaires impliquant des paires de bases non-Watson-Crick, montrés par les points verts dans la Figure \@ref(fig:rna-3E5C) (droite). Ces structures tertiaires peuvent être représentées sous forme de graphes. 
 
-Le modèle Leontis-Westhof classe les configurations géométriques des paires de bases en 12 classes selon les arêtes impliquées. [@Leontis-Westhof] 
+Le modèle Leontis-Westhof classe les configurations géométriques des paires de bases en 12 classes (Figure \@ref(fig:Leontis-Westhof-table)). Les interactions arête à arête (par liaisons hydrogène) entre les bases de l'ARN impliquent soit l'arête Watson-Crick, soit l'arête Hoogsteen ou soit l'arête Sugar, et les bases peuvent interagir dans l'une ou l'autre de deux orientations, cis ou trans. [@Leontis-Westhof] 
 
-- In Figure \@ref(fig:RIN-17), if we take nodes 4 and 6 for example, we can see that the edge that is formed is tSS. resulting in labeled graphs that encode both the presence and the geometric nature of interactions.
+```{r Leontis-Westhof-table, fig.align="center", fig.show="hold", fig.cap="La notation Leontis-Westhof", echo=FALSE, out.width='75%'}
+knitr::include_graphics("Leontis-Westhof.png")
+```
+
+Dans la Figure \@ref(fig:RIN-17), par exemple, si l'on considère les noeuds 4 et 6, on observe que l'arête reliant ces deux noeuds est TSS, ce qui indique que les orientation des liaison est 
+trans, l'arête en interaction est Sugar/Sugar et orientation des brins est paralèlle.
+
 
 ```{r RIN-17, fig.align="center", fig.show="hold", fig.cap="RIN-17 tirée du CaRNAval [@RIN-17]", echo=FALSE, out.width='30%'}
 knitr::include_graphics("rin-17.png")
@@ -158,43 +164,6 @@ knitr::include_graphics("rin-17.png")
 
 ## BayesPairing2
 [BayesPairing2](https://jwgitlab.cs.mcgill.ca/sarrazin/rnabayespairing2)
-
-# Utilisation de BayesPairing2
-
-Pour tester les outils et comprendre leurs différences, nous avons décidé de comparer les différentes bases de données comprises dans Bayespairing2. Nous avons essayé d'utiliser celle de cantaloops_carnaval_v5, mais elle nous donnait à chaque reprise l'erreur IndexOutOfBounds.
-
-## Jeux de données
-SECIS Element (1WSU)
-GCUUGUACUGCUGAAGUGCUGUACAGU
-
-```{r SECIS, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='33%', fig.show='hold', fig.align='center', out.height=300}
-knitr::include_graphics("SECIS_RELIABLE.svg")
-knitr::include_graphics("SECIS_ATLAS.svg")
-knitr::include_graphics("SECIS_KT.svg")
-
-```
-
-RNase P Junction (3P22)
-GGCAGUGCUCAGUAACAGUGCC
-
-```{r RNaseP, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
-knitr::include_graphics("RNAP_RELIABLE.svg")
-knitr::include_graphics("RNAP_ATLAS.svg")
-
-```
-
-Sarcin-Ricin Loop (3S8U)
-UCCGGUUCCAGCCUCCUCAGAAACCGGAG
-
-```{r SRL, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
-knitr::include_graphics("SRL_RELIABLE.svg")
-knitr::include_graphics("SRL_ATLAS.svg")
-
-```
-
-## Méthodologie
-
-## Résultats
 
 
 # Conclusion et perspectives
