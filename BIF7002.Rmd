@@ -165,9 +165,7 @@ Le RNA 3D Hub est une meta base de donnée spécialisée développée par le *BG
 - [Resources]() contient divers autres outils, dont WebFR3D, JAR3D et R3D.
 
 ## BayesPairing2
-[BayesPairing2](https://jwgitlab.cs.mcgill.ca/sarrazin/rnabayespairing2)
-  
-BayesPairing2 est un algorithme conçu par Roman Gendron Sarazin et al.. Cet outil assure une recherche assidue de modules de ARNs dans des séquences. Il remplace son prédécesseur, BayesPairing 1, en assurant une meilleure précision et flexibilité. Cet outil permet l'analyse des structures d'une séquence d'ARN donnée à l'aide d’échantillonnage stochastique de structures secondaires. Il utilise cette information pour ensuite identifier des sites d’insertion de modules potentiels et sélectionner des modules qui peuvent se présenter dans ce contexte structural. De sorte. cela lui permet de réduire le nombre de faux positifs et de rechercher plusieurs modules à la fois. Il peut également entreprendre des recherches à partir d'alignements de séquences.   
+[BayesPairing2](https://jwgitlab.cs.mcgill.ca/sarrazin/rnabayespairing2) est un algorithme conçu par Roman Gendron Sarazin et al.. Cet outil assure une recherche assidue de modules de ARNs dans des séquences. Il remplace son prédécesseur, BayesPairing 1, en assurant une meilleure précision et flexibilité. Cet outil permet l'analyse des structures d'une séquence d'ARN donnée à l'aide d’échantillonnage stochastique de structures secondaires. Il utilise cette information pour ensuite identifier des sites d’insertion de modules potentiels et sélectionner des modules qui peuvent se présenter dans ce contexte structural. De sorte. cela lui permet de réduire le nombre de faux positifs et de rechercher plusieurs modules à la fois. Il peut également entreprendre des recherches à partir d'alignements de séquences.   
   
 Pour les paires de bases canoniques, à l'équilibre thermodynamique, il est attendu qu'une séquence d'ARN ait un comportement stochastique et qu'elle puisse adopter quelconques de ses structures secondaires compatibles avec elle-même en respectant les règles canoniques d'appariement de bases Watson-Crick/Wobble avec une probabilité proportionnelle à son facteur de Boltzmann. Ce dernier détermine la probabilité d'un système physique occupant un état d'énergie spécifique à une température donnée.  
   
@@ -183,46 +181,56 @@ Pour tester les outils et comprendre leurs différences, nous avons décidé de 
   
 - ALL: Un ensemble de tous les modules qui ont pu être convertis des modèles de 3D  Motif Atlas à ceux de BayesPairing2 (426 au total)    
    
-- tdma388_KT: Un ensemble spécialisé des modules ayant un motif Kink-Turn.    
+- tdma388_KT: Un ensemble spécialisé des modules ayant un motif Kink-Turn. Utile lorsque nous voulons identifier spécifiquement ce motif. Pour notre expérience, nous avons employé uniquement les trois derniers ensembles mentionnés ci haut.    
 
-Puisque nous avons uniquement identifié les séquences de nucléotides, BayesPairing2 a entrepris un échantionllonage non redondant des structures secondaires de l'ensemble complet en utilisant RNAsubopt. La librairie htd entreprend la décomposition arborescente des modules et les probabilités conditionnelles sont apprises à l'aide de pgmpy. [@bayes]
+Puisque nous avons uniquement identifié les séquences de nucléotides, BayesPairing2 a entrepris un échantillonnage non redondant des structures secondaires de l'ensemble complet en utilisant RNAsubopt. La librairie htd entreprend la décomposition arborescente des modules et les probabilités conditionnelles sont apprises à l'aide de pgmpy. [@bayes]  
 
-## Jeux de données
+Les scores des modules représentent un ratio de rapport de vraisemblance reflétant la probabilité de la séquence dépendamment du module. Un score élevé indique une très grande similarité à un motif 3D connu dans l'ensemble de donnée utilisé. Nous avons ensuite identifié les motifs visuellement (normalement il est possible de mapper les modules à leurs motifs, mais nous avons rencontré un problème avec certains scripts que ne n'avons malheureusement pas pu troubleshoot). Nous les avons aussi validés en rentrant les séquences sur [JAR3D](), un autre outil qui peut identifier des motifs dans des séquences d'ARN.
 
-Human GPX1 SECIS (PDB 2Y0S)  
-GCUUGCAUGAGUCCCCAAAGGGGAGUGCAGGC  
+## Jeux de données  
+*GUAA tetraloop mutant of Sarcin/Ricin domain from E. Coli 23 S rRNA* (PDB 1MSY)  
+`>1MSY_1|Chain A|SARCIN/RICIN DOMAIN FROM 23 S RRNA|null`  
+`UGCUCCUAGUACGUAAGGACCGGAGUG`  
 
-```{r SECIS, fig.show="hold", fig.cap=c("rel","atlas","all","kt"), echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
-knitr::include_graphics(c("kturn_rel.svg",
-                          "kturn_atlas.svg",
-                          "kturn_all.svg",
-                          "kturn_kt.svg"))
+```{r SRL, fig.show="hold", fig.cap=("De gauche à droite: Structure 2D de la séquence inférée à l'aide des ensembles RELIABLE, rna3dmotif_jan2025 et ALL, respectivement."), echo=FALSE, out.width='33%', fig.show='hold', fig.align='center', out.height=250}
+knitr::include_graphics(c("1MSY_rel.svg",
+                          "1MSY_atlas.svg",
+                          "1MSY_all.svg"))
+
+```  
+ 
+*61 nt human Hepatitis B virus epsilon pre-genomic RNA* (PDB 6VAR)  
+`>6VAR_1|Chain A|RNA (61-MER)|Hepatitis B virus (10407)`  
+`GGUUCAUGUCCUACUGUUCAAGCCUCCAAGCUGUGCCUUGGGUGGCUUUGGGGCAUGGACC`
+
+```{r 6var1, fig.show="hold", echo=FALSE, out.width='75%', fig.show='hold', fig.align='center', out.height=400}
+knitr::include_graphics("6VAR_rel.svg")
+
+``` 
+```{r 6var2, fig.show="hold", echo=FALSE, out.width='75%', fig.show='hold', fig.align='center', out.height=400}
+knitr::include_graphics("6VAR_atlas.svg")
+
+``` 
+```{r 6var3, fig.show="hold", fig.cap=("De haut en bas: Structure 2D de la séquence inférée à l'aide des ensembles RELIABLE, rna3dmotif_jan2025 et ALL, respectivement."), echo=FALSE, out.width='75%', fig.show='hold', fig.align='center', out.height=400}
+knitr::include_graphics("6VAR_all.svg")
+``` 
+
+*Crystal structure of an E. coli thi-box riboswitch bound to thiamine pyrophosphate, manganese ions* (PDB 2HOJ)  
+`>2HOJ_1|Chain A|thi-box riboswitch|null`  
+`GCGACUCGGGGUGCCCUUCUGCGUGAAGGCUGAGAAAUACCCGUAUCACCUGAUCUGGAUAAUGCCAGCGUAGGGAAGUCGCA`  
+
+```{r ribo1, fig.show="hold", echo=FALSE, out.width='100%', fig.show='hold', fig.align='center', out.height=300}
+knitr::include_graphics("2HOJ_rel.svg")
 
 ```
-
-B. subtilis RNase P (PDB 1F6X)  
-GAGCCUGGAAGUCCGGCUUC  
-
-```{r RNaseP, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
-knitr::include_graphics(c("p4junction_rel.svg",
-                          "p4junction_atlas.svg",
-                          "p4junction_all.svg",
-                          "p4junction_kt.svg"))
+```{r ribo2, fig.show="hold",echo=FALSE, out.width='100%', fig.show='hold', fig.align='center', out.height=425}
+knitr::include_graphics("2HOJ_atlas.svg")
 
 ```
-
-28S Ribosomal RNA (PDB 1MSY)  
-UCCGGUUCCAGCCUCCUCAGAAACCGGAG  
-
-```{r SRL, fig.show="hold", fig.cap="Caption", echo=FALSE, out.width='50%', fig.show='hold', fig.align='center', out.height=300}
-knitr::include_graphics(c("sturn_rel.svg",
-                          "sturn_atlas.svg",
-                          "sturn_all.svg",
-                          "sturn_kt.svg"))
-
+```{r ribo3, fig.show="hold", fig.cap=c("De haut en bas: Structure 2D de la séquence inférée à l'aide des ensembles RELIABLE, rna3dmotif_jan2025 et ALL, respectivement."), echo=FALSE, out.width='100%', fig.show='hold', fig.align='center', out.height=250}
+knitr::include_graphics("2HOJ_all.svg")
 ```
-
-
+ 
 # Conclusion et perspectives
 
 # Références
